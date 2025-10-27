@@ -12,7 +12,7 @@ public class Controller extends OpMode{
     // Go to motors and connect it to the right port.
 
 
-    // Plug a controller into the dr
+    // Plug a controller into the drive
     MotorPack mp = new MotorPack();
     TouchSensorPack tsp = new TouchSensorPack();
     @Override
