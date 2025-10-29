@@ -1,9 +1,7 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.mechanisms;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import org.firstinspires.ftc.teamcode.mechanisms.MotorPack;
-import org.firstinspires.ftc.teamcode.mechanisms.TouchSensorPack;
 
 @TeleOp
 public class Controller extends OpMode{
