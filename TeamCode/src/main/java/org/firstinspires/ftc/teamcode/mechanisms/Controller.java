@@ -3,6 +3,9 @@ package org.firstinspires.ftc.teamcode.mechanisms;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+// In the mechanisms folder you make a file like MotorPack or TouchSensorPack. 
+// You import the classes you made (like MotorPack or TouchSensorPack) and then you program with them.
+
 @TeleOp
 public class Controller extends OpMode{
     // Go into configure robot on the driver hub.
@@ -11,10 +14,11 @@ public class Controller extends OpMode{
 
 
     // Plug a controller into the drive
-    MotorPack mp = new MotorPack();
+    // Initialize an instance of these classes. 
+    MotorPack mp = new MotorPack(); 
     TouchSensorPack tsp = new TouchSensorPack();
     @Override
-    public void init(){
+    public void init(){ // in the init you call the init in the classes.
         mp.init(hardwareMap);
         tsp.init(hardwareMap);
         // If we named the motor motor1 this would work.
