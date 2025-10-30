@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.mechanisms.MecanumDrive;
 import org.firstinspires.ftc.teamcode.mechanisms.MotorPack;
 import org.firstinspires.ftc.teamcode.mechanisms.TouchSensorPack;
 
@@ -18,18 +19,16 @@ public class Controller extends OpMode{
 
     // Plug a controller into the drive
     // Initialize an instance of these classes. 
-    MotorPack mp = new MotorPack();
+    MecanumDrive drive = new MecanumDrive();
     TouchSensorPack tsp = new TouchSensorPack();
     @Override
-    public void init(){ // in the init you call the init in the classes.
-        mp.init(hardwareMap);
-        tsp.init(hardwareMap);
+    public void init(){ // in the init you call the init in the classes
         // If we named the motor motor1 this would work.
     }
     @Override
     public void loop(){
         if (tsp.isTouchSensorPressed()){
-            mp.setMotorSpeed(1.0); // This is testing code. The motor should run
+            // This is testing code. The motor should run
             // when this happens.
         }
         // motor.setPower(gamepad1.left_trigger);
