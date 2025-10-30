@@ -11,7 +11,15 @@ public class MecanumDrive
     private DcMotor frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor;
     private IMU imu;
 
+    public void drive(double forward, double strafe, double rotate) {
+        double frontLeftPower = forward + strafe + rotate;
+        double backLeftPower = forward - strafe + rotate;
+        double frontRightPower = forward - strafe - rotate;
+        double backRightPower = forward + strafe - rotate;
 
+        double maxPower = 1.0;
+        // resume here: https://youtu.be/sFCO4du5IZk?list=PLRHdgFNRLyaPiZ5rvINwMmGMHEIL9usla&t=970
+    }
     public void init(HardwareMap hwMap) {
         frontLeftMotor = hwMap.get(DcMotor.class, "front_left_motor");
         backLeftMotor = hwMap.get(DcMotor.class, "back_left_motor");
@@ -47,15 +55,7 @@ public class MecanumDrive
 
         imu.initialize(new IMU.Parameters(revOrientation));
 
-        public void drive(double forward, double strafe, double rotate) {
-            double frontLeftPower = forward + strafe + rotate;
-            double backLeftPower = forward - strafe + rotate;
-            double frontRightPower = forward - strafe - rotate;
-            double backRightPower = forward + strafe - rotate;
 
-            double maxPower = 1.0;
-            // resume here: https://youtu.be/sFCO4du5IZk?list=PLRHdgFNRLyaPiZ5rvINwMmGMHEIL9usla&t=970
-        }
 
 
 
