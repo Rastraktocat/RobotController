@@ -16,23 +16,14 @@ public class Controller extends OpMode{
     // Plug a controller into the dr
     MotorPack mp = new MotorPack();
     ServoPack sp = new ServoPack();
-    TouchSensorPack tsp = new TouchSensorPack();
     @Override
     public void init(){
         mp.init(hardwareMap);
         sp.init(hardwareMap);
-        tsp.init(hardwareMap);
         // If we named the motor motor1 this would work.
     }
     @Override
     public void loop(){
-        if (tsp.isTouchSensorPressed()){
-            mp.setMotorSpeed(1.0); // This is testing code. The motor should run
-            // when this happens.
-        }
-
-        // motor.setPower(gamepad1.left_trigger);
-        // This assigns a beings powered to left trigger.
 
 
     }
