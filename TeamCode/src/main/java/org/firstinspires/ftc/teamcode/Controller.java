@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.mechanisms.MotorPack;
+import org.firstinspires.ftc.teamcode.mechanisms.ServoPack;
 import org.firstinspires.ftc.teamcode.mechanisms.TouchSensorPack;
 
 @TeleOp
@@ -14,10 +15,12 @@ public class Controller extends OpMode{
 
     // Plug a controller into the dr
     MotorPack mp = new MotorPack();
+    ServoPack sp = new ServoPack();
     TouchSensorPack tsp = new TouchSensorPack();
     @Override
     public void init(){
         mp.init(hardwareMap);
+        sp.init(hardwareMap);
         tsp.init(hardwareMap);
         // If we named the motor motor1 this would work.
     }
@@ -27,6 +30,7 @@ public class Controller extends OpMode{
             mp.setMotorSpeed(1.0); // This is testing code. The motor should run
             // when this happens.
         }
+
         // motor.setPower(gamepad1.left_trigger);
         // This assigns a beings powered to left trigger.
 
