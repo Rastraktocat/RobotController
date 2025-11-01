@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.mechanisms;
 
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
@@ -11,6 +12,7 @@ public class MecanumDrive
 
 {
     private DcMotor frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor;
+    private DcMotor upperClockWiseMotor, upperCounterClockwiseMotor;
     private IMU imu;
 
 
@@ -22,14 +24,18 @@ public class MecanumDrive
         front_right_motor - port 2
         back_right_motor - port 3
          */
+        // Check which ports the upper motors are!!!
         frontLeftMotor = hwMap.get(DcMotor.class, "front_left_motor");
         backLeftMotor = hwMap.get(DcMotor.class, "back_left_motor");
         frontRightMotor = hwMap.get(DcMotor.class, "front_right_motor");
         backRightMotor = hwMap.get(DcMotor.class, "back_right_motor");
-
+        upperClockWiseMotor = hwMap.get(DcMotor.class, "upper_clock_wise_motor");
+        upperCounterClockwiseMotor = hwMap.get(DcMotor.class, "upper_counter_clock_wise_motor");
 
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+
+        upperCounterClockwiseMotor.setDirection(DcMotor.Direction.REVERSE);
 
         frontLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -92,6 +98,15 @@ public class MecanumDrive
 
         this.drive(newForward, newStrafe, rotate);
     }
-
-
+    public void setUpperMotorSpin(double power){
+        double maxPower = 1.0;
+        if(power > 1.0){
+            power = maxPower;
+        }
+        if(power < 0){
+            power = 0.0;
+        }
+        upperCounterClockwiseMotor.setPower(power);
+        upperCounterClockwiseMotor.setPower(power);
+    }
 }
