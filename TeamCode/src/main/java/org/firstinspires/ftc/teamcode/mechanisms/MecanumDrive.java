@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.mechanisms;
 
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
@@ -98,15 +97,12 @@ public class MecanumDrive
 
         this.drive(newForward, newStrafe, rotate);
     }
-    public void setUpperMotorSpin(double power){
-        double maxPower = 1.0;
-        if(power > 1.0){
-            power = maxPower;
-        }
-        if(power < 0){
-            power = 0.0;
-        }
-        upperCounterClockwiseMotor.setPower(power);
-        upperCounterClockwiseMotor.setPower(power);
+    public void setUpperMotorSpinPower(){
+        upperClockWiseMotor.setPower(1.0);
+        upperCounterClockwiseMotor.setPower(1.0);
+    }
+    public void setUpperMotorSpinBrake() {
+        upperClockWiseMotor.setPower(0.0);
+        upperCounterClockwiseMotor.setPower(0.0);
     }
 }
