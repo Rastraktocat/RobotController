@@ -17,7 +17,7 @@ public class MecanumFieldOrientatedOpMode extends OpMode {
 
     @Override
     public void loop() {
-        if (gamepad1.a) {
+        if (gamepad1.dpad_up) {
             drive.setUpperMotorSpin(1.0);
         } else {
             drive.setUpperMotorSpin(0.0);
