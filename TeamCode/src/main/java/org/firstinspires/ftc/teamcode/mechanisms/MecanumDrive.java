@@ -51,7 +51,7 @@ public class MecanumDrive
                 'up' refers to something facing towards you
                 while 'down' refers to something facing the ground */
                 RevHubOrientationOnRobot.LogoFacingDirection.UP, // 'REV' logo on control hub is facing towards you
-                RevHubOrientationOnRobot.UsbFacingDirection.FORWARD // USB-C port is closer to the top
+                RevHubOrientationOnRobot.UsbFacingDirection.LEFT // USB-C port is closer to the top
         );
 
         imu.initialize(new IMU.Parameters(revOrientation));
