@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.mechanisms.MecanumDrive;
 @TeleOp
-public class MecanumFieldOrientatedOpMode extends OpMode {
+public class test_2 extends OpMode {
 
     MecanumDrive drive = new MecanumDrive();
     double forward, strafe, rotate;
@@ -14,6 +14,7 @@ public class MecanumFieldOrientatedOpMode extends OpMode {
     public void init() {
         drive.init(hardwareMap);
     }
+
     @Override
     public void loop() {
         if (gamepad1.dpad_up) {

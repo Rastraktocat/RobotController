@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
-public class MecanumDrive
+public class test_1
 
 {
     private DcMotor frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor;
@@ -41,8 +41,6 @@ public class MecanumDrive
         frontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        upperCounterClockwiseMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        upperClockWiseMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         //the device name might change I am not sure, but basically what we are doing
         //we are basically assigning defined motors, from the source code to a class
         // and attaching a string for a device named when making the method.
@@ -101,9 +99,6 @@ public class MecanumDrive
     }
     public void setUpperMotorSpinPower(){
         upperClockWiseMotor.setPower(1.0);
-        if (upperCounterClockwiseMotor == null){
-            upperCounterClockwiseMotor.setPower(1.0);
-        }
         upperCounterClockwiseMotor.setPower(1.0);
     }
     public void setUpperMotorSpinBrake() {
