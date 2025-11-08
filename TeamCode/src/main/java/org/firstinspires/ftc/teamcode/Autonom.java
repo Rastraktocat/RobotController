@@ -4,6 +4,9 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+import org.firstinspires.ftc.teamcode.mechanisms.RobotActions;
+import org.firstinspires.ftc.teamcode.mechanisms.Vision;
+
 @Autonomous
 public class Autonom extends LinearOpMode {
 
@@ -19,6 +22,10 @@ public class Autonom extends LinearOpMode {
     static final double WHEEL_DIAMETER_INCHES = 3.78; // wheel diameter
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * Math.PI);
+
+    private RobotActions robAct = RobotActions.Read_Tag;
+
+    private Vision vision;
 
     @Override
     public void runOpMode() {
@@ -45,12 +52,20 @@ public class Autonom extends LinearOpMode {
         telemetry.addData("Status", "Initialized and Ready");
         telemetry.update();
 
+        vision = new Vision(hardwareMap, "VisionCam");
+
         // Wait for the start signal
         waitForStart();
 
-        if (opModeIsActive()) {
+        if (opModeIsActive() && robAct == robAct.Read_Tag) { // This is the code for
+            // running to the qr code. It currently doesn't read the qr code.
+
             // Drive forward 24 inches at 40% power
             encoderDrive(0.4, 24, 24, 5.0);
+            // I don't know where the qr code is so I haven't implemented anything yet.
+        }
+        if (opModeIsActive() && robAct == robAct.Collect_points) { // This starts collecting
+            // points when it knows the pattern. It currently doesn't work.
         }
     }
 
